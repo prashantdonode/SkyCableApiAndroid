@@ -1,0 +1,144 @@
+﻿@model IEnumerable<SkyCableApiAndroid.Models.tblBill>
+
+@{
+    ViewBag.Title = "PaidBill";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Paid Bill</h2>
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfBox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SetupBox_Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Package)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentAmount1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentAmount2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OldBal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monthcharge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bmonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Byear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfBox)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SetupBox_Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Package)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentAmount1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentAmount2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OldBal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monthcharge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bmonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Byear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "PaidBillEdit", new { id=item.Bid })
+        </td>
+    </tr>
+}
+
+</table>

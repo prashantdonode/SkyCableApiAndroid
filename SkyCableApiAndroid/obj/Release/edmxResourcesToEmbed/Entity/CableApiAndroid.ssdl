@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CableApiAndroidModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAdminRegistration">
+    <Key>
+      <PropertyRef Name="Aid" />
+    </Key>
+    <Property Name="Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegId" Type="int" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Pin" Type="nvarchar(max)" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="NoOfAgent" Type="int" />
+    <Property Name="SkyStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="tblAgent">
+    <Key>
+      <PropertyRef Name="Aid" />
+    </Key>
+    <Property Name="Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="AgentName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Password" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tblBill">
+    <Key>
+      <PropertyRef Name="Bid" />
+    </Key>
+    <Property Name="Bid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustId" Type="int" />
+    <Property Name="CustName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Area" Type="nvarchar(max)" />
+    <Property Name="NoOfBox" Type="int" />
+    <Property Name="SetupBox_Details" Type="nvarchar(max)" />
+    <Property Name="Package" Type="nvarchar(max)" />
+    <Property Name="RegistrationDate" Type="datetime" />
+    <Property Name="AgentName" Type="nvarchar(max)" />
+    <Property Name="PaymentDate1" Type="nvarchar(max)" />
+    <Property Name="PaymentAmount1" Type="int" />
+    <Property Name="PaymentDate2" Type="nvarchar(max)" />
+    <Property Name="PaymentAmount2" Type="int" />
+    <Property Name="OldBal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Monthcharge" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Bmonth" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Byear" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblCustomerRegistration">
+    <Key>
+      <PropertyRef Name="CustId" />
+    </Key>
+    <Property Name="CustId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Area" Type="nvarchar(max)" />
+    <Property Name="NoOfBox" Type="int" />
+    <Property Name="SetupBox_Details" Type="nvarchar(max)" />
+    <Property Name="Package" Type="nvarchar(max)" />
+    <Property Name="PackageRate" Type="int" />
+    <Property Name="RegistrationDate" Type="datetime" />
+    <Property Name="AgentName" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblPackage">
+    <Key>
+      <PropertyRef Name="Pid" />
+    </Key>
+    <Property Name="Pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackageName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblSkyVisionLogin">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityContainer Name="CableApiAndroidModelStoreContainer">
+    <EntitySet Name="tblAdminRegistration" EntityType="Self.tblAdminRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAgent" EntityType="Self.tblAgent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBill" EntityType="Self.tblBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomerRegistration" EntityType="Self.tblCustomerRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPackage" EntityType="Self.tblPackage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSkyVisionLogin" EntityType="Self.tblSkyVisionLogin" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

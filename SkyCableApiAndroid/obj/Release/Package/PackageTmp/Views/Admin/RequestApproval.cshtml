@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SkyCableApiAndroid.Models.tblAdminRegistration>
+
+@{
+    ViewBag.Title = "RequestApproval";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Request Approval</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    if(ViewBag.Message!=null)
+    {
+        if (ViewBag.Message == "1")
+        {
+            <div class="alert alert-success">
+               The User is <strong>Successfully</strong> Approval The Request.
+            </div>
+
+        }
+        else if (ViewBag.Message == "0")
+        {
+            <div class="alert alert-danger">
+                The User is <strong>Failed</strong>to Approval The Request.
+            </div>
+        }
+        else { }
+
+    }
+
+
+
+
+<div class="row">
+    <table class="table table-bordered table-hover table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.RegDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfAgent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IMEINo)
+            </th>
+           
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfAgent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IMEINo)
+                </td>
+                <td>
+                    @*<input type="submit" value="Approval" name="Edit" formaction="@Url.Action("Edit")" formmethod="post" class="btn btn-success" />*@
+                    @Html.ActionLink("Approval", "Approval", new { id = item.Aid }) |
+                    @Html.ActionLink("Reject", "Reject", new { id = item.Aid }) 
+                  
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+}

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-dark">
+        @Html.ActionLink("Sky Vision IT Solutions", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+        <div class="col-md-8">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse le" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li>@Html.ActionLink("Home", "Dashboard", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("Request", "RequestApproval", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("DilyReport", "DilyCollectionReport", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("MonthlyReport", "MonthWiseReport", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("BalanceReport", "BalanceReport", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("ActiveReport", "ActiveCustomerReport", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("DeactiveReport", "DeactiveCustomerReport", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("PaidBill", "PaidBill", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="collapse navbar-collapse le" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li>@Html.ActionLink("Logout", "LogOut", "Admin", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+
+
+    <div class="col-md-12 psd-padding-margin-top">
+        @RenderBody()
+        <hr />
+
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - Sky Vision IT Solutions</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

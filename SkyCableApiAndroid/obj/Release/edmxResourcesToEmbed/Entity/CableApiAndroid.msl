@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CableApiAndroidModelStoreContainer" CdmEntityContainer="CableApiAndroidEntities">
+    <EntitySetMapping Name="tblAdminRegistrations">
+      <EntityTypeMapping TypeName="CableApiAndroidModel.tblAdminRegistration">
+        <MappingFragment StoreEntitySet="tblAdminRegistration">
+          <ScalarProperty Name="Aid" ColumnName="Aid" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="NoOfAgent" ColumnName="NoOfAgent" />
+          <ScalarProperty Name="SkyStatus" ColumnName="SkyStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAgents">
+      <EntityTypeMapping TypeName="CableApiAndroidModel.tblAgent">
+        <MappingFragment StoreEntitySet="tblAgent">
+          <ScalarProperty Name="Aid" ColumnName="Aid" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBills">
+      <EntityTypeMapping TypeName="CableApiAndroidModel.tblBill">
+        <MappingFragment StoreEntitySet="tblBill">
+          <ScalarProperty Name="Bid" ColumnName="Bid" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="NoOfBox" ColumnName="NoOfBox" />
+          <ScalarProperty Name="SetupBox_Details" ColumnName="SetupBox_Details" />
+          <ScalarProperty Name="Package" ColumnName="Package" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="PaymentDate1" ColumnName="PaymentDate1" />
+          <ScalarProperty Name="PaymentAmount1" ColumnName="PaymentAmount1" />
+          <ScalarProperty Name="PaymentDate2" ColumnName="PaymentDate2" />
+          <ScalarProperty Name="PaymentAmount2" ColumnName="PaymentAmount2" />
+          <ScalarProperty Name="OldBal" ColumnName="OldBal" />
+          <ScalarProperty Name="Monthcharge" ColumnName="Monthcharge" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Bmonth" ColumnName="Bmonth" />
+          <ScalarProperty Name="Byear" ColumnName="Byear" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomerRegistrations">
+      <EntityTypeMapping TypeName="CableApiAndroidModel.tblCustomerRegistration">
+        <MappingFragment StoreEntitySet="tblCustomerRegistration">
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="NoOfBox" ColumnName="NoOfBox" />
+          <ScalarProperty Name="SetupBox_Details" ColumnName="SetupBox_Details" />
+          <ScalarProperty Name="Package" ColumnName="Package" />
+          <ScalarProperty Name="PackageRate" ColumnName="PackageRate" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPackages">
+      <EntityTypeMapping TypeName="CableApiAndroidModel.tblPackage">
+        <MappingFragment StoreEntitySet="tblPackage">
+          <ScalarProperty Name="Pid" ColumnName="Pid" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSkyVisionLogins">
+      <EntityTypeMapping TypeName="CableApiAndroidModel.tblSkyVisionLogin">
+        <MappingFragment StoreEntitySet="tblSkyVisionLogin">
+          <ScalarProperty Name="Sid" ColumnName="Sid" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
