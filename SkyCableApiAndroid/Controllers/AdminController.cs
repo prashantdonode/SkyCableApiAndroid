@@ -29,12 +29,12 @@ namespace SkyCableApiAndroid.Controllers
         }
 
         public ActionResult RequestApproval()
-                {
-                    var result = _objApproval.GetAdminApprovalRequest();
+        {
+              var result = _objApproval.GetAdminApprovalRequest();
 
-                    return View(result.Result.Response);
+               return View(result.Result.Response);
 
-                }
+         }
 
 
         #region Sky Vision Company Login
@@ -145,98 +145,123 @@ namespace SkyCableApiAndroid.Controllers
 
         #region Daily Collection Reports Show
 
-        //public ActionResult DilyCollectionReport()
-        //{
-        //    tblDailyCollectionModel model = new tblDailyCollectionModel();
+        public ActionResult DilyCollectionReport()
+        {
+            // tblDailyCollectionModel model = new tblDailyCollectionModel();
 
-        //    model.Date = Convert.ToString(System.DateTime.Now.Date);
+            tblBill model = new tblBill();
 
-        //    model.Date = model.Date.Remove(10);
-        //    model.Month = Convert.ToString(DateTime.Now.ToString("MMM"));
-        //    model.Year = Convert.ToString(DateTime.Now.Year);
+            model.PaymentDate1 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate1 = model.PaymentDate1.Remove(10);
+
+            model.PaymentDate2 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate2 = model.PaymentDate2.Remove(10);
+
+            model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
+            model.Byear = Convert.ToString(DateTime.Now.Year);
 
 
 
-        //    var result = _objReport.DailyCollectionReport(model);
+            var result = _objReport.DailyCollectionReport(model);
 
-        //    return View(result.Result.Response);
-        //}
+            return View(result.Result.Response);
+        }
 
         #endregion
 
         #region Month Wise Reports show
 
-        //public ActionResult MonthWiseReport()
-        //{
-        //    tblDailyCollectionModel model = new tblDailyCollectionModel();
+        public ActionResult MonthWiseReport()
+        {
+            // tblDailyCollectionModel model = new tblDailyCollectionModel();
 
-        //    string Date = Convert.ToString(DateTime.Now.Date);
-        //    model.Date = Date.Remove(10);
-        //    model.Month = Convert.ToString(DateTime.Now.ToString("MMM"));
-        //    model.Year = Convert.ToString(DateTime.Now.Year);
+            tblBill model = new tblBill();
 
+            model.PaymentDate1 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate1 = model.PaymentDate1.Remove(10);
 
-        //    var result = _objReport.MonthWiseReport(model);
+            model.PaymentDate2 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate2 = model.PaymentDate2.Remove(10);
 
-        //    return View(result.Result.Response);
-        //}
+            model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
+            model.Byear = Convert.ToString(DateTime.Now.Year);
+
+            var result = _objReport.MonthWiseReport(model);
+
+            return View(result.Result.Response);
+        }
 
 
         #endregion
 
         #region Balance Reports Show
 
-        //public ActionResult BalanceReport()
-        //{
-        //    tblDailyCollectionModel model = new tblDailyCollectionModel();
+        public ActionResult BalanceReport()
+        {
+            // tblDailyCollectionModel model = new tblDailyCollectionModel();
 
-        //    string Date = Convert.ToString(DateTime.Now.Date);
-        //    model.Date = Date.Remove(10);
-        //    model.Month = Convert.ToString(DateTime.Now.ToString("MMM"));
-        //    model.Year = Convert.ToString(DateTime.Now.Year);
+            tblBill model = new tblBill();
 
-        //    var result = _objReport.BalanceReport(model);
+            model.PaymentDate1 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate1 = model.PaymentDate1.Remove(10);
 
-        //    return View(result.Result.Response);
-        //}
+            model.PaymentDate2 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate2 = model.PaymentDate2.Remove(10);
+
+            model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
+            model.Byear = Convert.ToString(DateTime.Now.Year);
+
+            var result = _objReport.BalanceReport(model);
+
+            return View(result.Result.Response);
+        }
 
         #endregion
 
         #region Active Customer Reports Show
 
-        //public ActionResult ActiveCustomerReport()
-        //{
-        //    tblDailyCollectionModel model = new tblDailyCollectionModel();
+        public ActionResult ActiveCustomerReport()
+        {
+            // tblDailyCollectionModel model = new tblDailyCollectionModel();
+            tblBill model = new tblBill();
 
-        //    string Date = Convert.ToString(DateTime.Now.Date);
+            model.PaymentDate1 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate1 = model.PaymentDate1.Remove(10);
 
-        //    model.Date = Date.Remove(10);
-        //    model.Month = Convert.ToString(DateTime.Now.ToString("MMM"));
-        //    model.Year = Convert.ToString(DateTime.Now.Year);
+            model.PaymentDate2 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate2 = model.PaymentDate2.Remove(10);
 
-        //    var result = _objReport.ActiveCustomerReport(model);
+            model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
+            model.Byear = Convert.ToString(DateTime.Now.Year);
 
-        //    return View(result.Result.Response);
-        //}
+            var result = _objReport.ActiveCustomerReport(model);
+
+            return View(result.Result.Response);
+        }
 
         #endregion
 
         #region Deactive Customer Reports Show
 
-        //public ActionResult DeactiveCustomerReport()
-        //{
-        //    tblDailyCollectionModel model = new tblDailyCollectionModel();
+        public ActionResult DeactiveCustomerReport()
+        {
+            // tblDailyCollectionModel model = new tblDailyCollectionModel();
 
-        //    string Date = Convert.ToString(DateTime.Now.Date);
-        //    model.Date = Date.Remove(10);
+            tblBill model = new tblBill();
 
-        //    model.Month = Convert.ToString(DateTime.Now.ToString("MMM"));
-        //    model.Year = Convert.ToString(DateTime.Now.Year);
+            model.PaymentDate1 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate1 = model.PaymentDate1.Remove(10);
 
-        //    var result = _objReport.DeactiveCustomerReport(model);
+            model.PaymentDate2 = Convert.ToString(System.DateTime.Now.Date);
+            model.PaymentDate2 = model.PaymentDate2.Remove(10);
 
-        //    return View(result.Result.Response);
-        //}
+            model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
+            model.Byear = Convert.ToString(DateTime.Now.Year);
+
+            var result = _objReport.DeactiveCustomerReport(model);
+
+            return View(result.Result.Response);
+        }
 
         #endregion
 

@@ -103,6 +103,7 @@ namespace SkyCableApiAndroid.Controllers
                     _objCustomer.SetupBox_Details = model.SetupBox_Details;
                     _objCustomer.Package = model.Package;
                     _objCustomer.PackageRate = (model.PackageRate * model.NoOfBox);
+
                     if (_objCustomer.OldBal == null)
                     {
                         _objCustomer.OldBal = 0;
@@ -111,6 +112,7 @@ namespace SkyCableApiAndroid.Controllers
                     {
                         _objCustomer.OldBal = model.OldBal;
                     }
+
                     _objCustomer.RegistrationDate = model.RegistrationDate;
                     _objCustomer.AgentName = model.AgentName;
                     _objCustomer.Status = model.Status;
@@ -132,9 +134,6 @@ namespace SkyCableApiAndroid.Controllers
 
                 }
                    
-           
-
-               
             }
             catch (Exception exp)
             {
@@ -828,6 +827,9 @@ namespace SkyCableApiAndroid.Controllers
 
         #endregion
 
+
+        #region Daily Collections Report Agent
+
         [HttpPost]
         public async Task<ProjectResult> DailyCollectionReportAgent(tblBill model)
         {
@@ -855,5 +857,6 @@ namespace SkyCableApiAndroid.Controllers
 
         }
 
+        #endregion
     }
 }
