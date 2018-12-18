@@ -162,7 +162,6 @@ D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\bin\Microsoft.Owin.Security.
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\bin\Microsoft.Owin.Security.Twitter.xml
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\bin\System.Web.Http.Owin.xml
-D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.csprojResolveAssemblyReference.cache
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.Migrations.firstdata.resources
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.Migrations.seconddata.resources
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.Migrations.thirddata.resources

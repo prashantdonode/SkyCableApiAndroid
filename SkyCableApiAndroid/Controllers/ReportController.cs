@@ -58,7 +58,7 @@ namespace SkyCableApiAndroid.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _db.tblBills.Where(psd => (psd.PaymentDate1.Contains(model.PaymentDate1)) || (psd.PaymentDate2.Contains(model.PaymentDate2)) && psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.IMEINo == model.IMEINo && psd.OperatorCode == model.OperatorCode).ToList();
+                    var result = _db.tblBills.Where(psd => (psd.PaymentDate1==model.PaymentDate1) || (psd.PaymentDate2 == model.PaymentDate2) && psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.IMEINo == model.IMEINo && psd.OperatorCode == model.OperatorCode).ToList();
 
                     return new ProjectResult { Message = "Successs", Status = 1, Response = result };
 

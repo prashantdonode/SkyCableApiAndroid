@@ -63,11 +63,9 @@
                 @Html.DisplayNameFor(model => model.RegDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NoOfAgent)
+                @Html.DisplayNameFor(model => model.SkyStatus)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IMEINo)
-            </th>
+           
            
             <th></th>
         </tr>
@@ -101,16 +99,16 @@
                     @Html.DisplayFor(modelItem => item.RegDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NoOfAgent)
+                    @Html.DisplayFor(modelItem => item.SkyStatus)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IMEINo)
-                </td>
+               
                 <td>
                     @*<input type="submit" value="Approval" name="Edit" formaction="@Url.Action("Edit")" formmethod="post" class="btn btn-success" />*@
-                    @Html.ActionLink("Approval", "Approval", new { id = item.Aid }) |
-                    @Html.ActionLink("Reject", "Reject", new { id = item.Aid }) 
+                    @*@Html.ActionLink("Approval", "Approval", new { id = item.Aid }) |
+                    @Html.ActionLink("Reject", "Reject", new { id = item.Aid })*@ 
                   
+                    <a href="/Admin/Approval/@item.Aid" class="btn btn-success">Approval</a>
+                    <a href="/Admin/Reject/@item.Aid" class="btn btn-danger">Reject</a>
                 </td>
             </tr>
         }

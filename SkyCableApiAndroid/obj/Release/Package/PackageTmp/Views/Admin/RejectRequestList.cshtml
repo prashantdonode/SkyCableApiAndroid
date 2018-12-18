@@ -1,41 +1,14 @@
 ﻿@model IEnumerable<SkyCableApiAndroid.Models.tblAdminRegistration>
 
 @{
-    ViewBag.Title = "RequestApproval";
+    ViewBag.Title = "RejectRequestList";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Request Approval</h2>
+<h2>Reject Request List</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-
-    if(ViewBag.Message!=null)
-    {
-        if (ViewBag.Message == "1")
-        {
-            <div class="alert alert-success">
-               The User is <strong>Successfully</strong> Approval The Request.
-            </div>
-
-        }
-        else if (ViewBag.Message == "0")
-        {
-            <div class="alert alert-danger">
-                The User is <strong>Failed</strong>to Approval The Request.
-            </div>
-        }
-        else { }
-
-    }
-
-
-
-
-<div class="row">
-    <table class="table table-bordered table-hover table-responsive">
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.RegId)
@@ -58,20 +31,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.UserId)
             </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.RegDate)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.SkyStatus)
             </th>
-           
-           
+          
             <th></th>
         </tr>
 
-        @foreach (var item in Model)
-        {
+        @foreach (var item in Model) {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.RegId)
@@ -94,26 +61,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.UserId)
                 </td>
-               
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegDate)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SkyStatus)
                 </td>
                
                 <td>
-                    @*<input type="submit" value="Approval" name="Edit" formaction="@Url.Action("Edit")" formmethod="post" class="btn btn-success" />*@
-                    @*@Html.ActionLink("Approval", "Approval", new { id = item.Aid }) |
-                    @Html.ActionLink("Reject", "Reject", new { id = item.Aid })*@ 
-                  
-                    <a href="/Admin/Approval/@item.Aid" class="btn btn-success">Approval</a>
-                    <a href="/Admin/Reject/@item.Aid" class="btn btn-danger">Reject</a>
+                    @Html.ActionLink("Approval", "Approval", new { id=item.Aid }) 
                 </td>
             </tr>
-        }
+}
 
     </table>
 </div>
-
-}

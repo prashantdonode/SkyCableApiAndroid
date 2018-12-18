@@ -334,6 +334,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\AndroidApi21112018.pubxml" />
     <None Include="Properties\PublishProfiles\AndroidCablePublish.pubxml" />
+    <None Include="Properties\PublishProfiles\cablepubish1812.pubxml" />
     <None Include="Properties\PublishProfiles\skyandroid0512.pubxml" />
     <None Include="Properties\PublishProfiles\skyapp0512.pubxml" />
     <None Include="Properties\PublishProfiles\skycabel06demo.pubxml" />
@@ -397,6 +398,7 @@
     <Content Include="Views\Admin\DeactiveCustomerReport.cshtml" />
     <Content Include="Views\Admin\PaidBill.cshtml" />
     <Content Include="Views\Admin\PaidBillEdit.cshtml" />
+    <Content Include="Views\Admin\RejectRequestList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

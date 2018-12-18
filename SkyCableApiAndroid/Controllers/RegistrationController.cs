@@ -699,16 +699,27 @@ namespace SkyCableApiAndroid.Controllers
         {
             try
             {
-               
+                if (ModelState.IsValid)
+                {
                     // var result = _db.tblBills.Where(psd=>psd.CustId==model.CustId).FirstOrDefault();
 
-                    using (CableApiAndroidEntity _db =new CableApiAndroidEntity())
+                    using (CableApiAndroidEntity _db = new CableApiAndroidEntity())
                     {
 
-                        tblBill _objBill = (from psd in _db.tblBills.Where(psd => psd.Bid == model.Bid && psd.OperatorCode == model.OperatorCode) select psd).FirstOrDefault();
-                        tblCustomerRegistration _objCust= (from psd in _db.tblCustomerRegistrations.Where(psd => psd.CustId == _objBill.CustId && psd.OperatorCode == model.OperatorCode) select psd).FirstOrDefault();
+                        tblBill _objBill = (from psd in _db.tblBills.Where(psd => psd.Bid == model.Bid) select psd).FirstOrDefault();
+                        tblCustomerRegistration _objCust = (from psd in _db.tblCustomerRegistrations.Where(psd => psd.CustId == _objBill.CustId) select psd).FirstOrDefault();
 
-                        if (model.PaymentAmount2 == 0 && model.PaymentDate2 == "")
+                        if (model.PaymentAmount2 != 0 && model.PaymentDate2 != "")
+                        {
+                            //_objBill.PaymentAmount1 = model.PaymentAmount1;
+                            //_objBill.PaymentDate1 = model.PaymentDate1;
+                            _objBill.PaymentAmount2 = model.PaymentAmount2;
+                            _objBill.PaymentDate2 = model.PaymentDate2;
+                            _objBill.Balance = model.Balance;
+                            _objBill.Bid = model.Bid;
+
+                        }
+                        else
                         {
                             _objBill.PaymentAmount1 = model.PaymentAmount1;
                             _objBill.PaymentDate1 = model.PaymentDate1;
@@ -718,16 +729,6 @@ namespace SkyCableApiAndroid.Controllers
                             _objBill.Bid = model.Bid;
                         }
 
-                        else
-                        {
-                            //_objBill.PaymentAmount1 = model.PaymentAmount1;
-                            //_objBill.PaymentDate1 = model.PaymentDate1;
-                            _objBill.PaymentAmount2 = model.PaymentAmount2;
-                            _objBill.PaymentDate2 = model.PaymentDate2;
-                            _objBill.Balance = model.Balance;
-                            _objBill.Bid = model.Bid;
-
-                        }  
 
 
                         if (model.PaymentAmount1 != 0 && model.PaymentAmount2 == 0)
@@ -747,10 +748,18 @@ namespace SkyCableApiAndroid.Controllers
                         _db.Entry(_objCust).State = System.Data.Entity.EntityState.Modified;
                         _db.SaveChanges();
 
-                        return new ProjectResult { Message = "Success", Status = 1, Response = "Success" };
+                        return new ProjectResult { Message = "Success", Status = 1, Response = _objBill };
 
                     }
-                    
+
+
+
+                }
+                else
+                {
+                    return new ProjectResult { Message = "Failed", Status = 0, Response = null };
+                }
+
             }
             catch (Exception exp)
             {

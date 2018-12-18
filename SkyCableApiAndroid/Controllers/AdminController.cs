@@ -28,11 +28,12 @@ namespace SkyCableApiAndroid.Controllers
             return View();
         }
 
+
         public ActionResult RequestApproval()
         {
-              var result = _objApproval.GetAdminApprovalRequest();
+              var result = _db.tblAdminRegistrations.ToList();
 
-               return View(result.Result.Response);
+               return View(result);
 
          }
 
@@ -142,6 +143,16 @@ namespace SkyCableApiAndroid.Controllers
 
         #endregion
 
+        #region Reject List
+
+        public ActionResult RejectRequestList()
+        {
+            var result = _db.tblAdminRegistrations.Where(psd => psd.SkyStatus == 2).ToList();
+
+            return View(result);
+        }
+
+        #endregion
 
         #region Daily Collection Reports Show
 
@@ -162,9 +173,9 @@ namespace SkyCableApiAndroid.Controllers
 
 
 
-            var result = _objReport.DailyCollectionReport(model);
+            var result = _db.tblBills.Where(psd => psd.PaymentDate1.Contains(model.PaymentDate1) || psd.PaymentDate2.Contains(model.PaymentDate2) && psd.Bmonth==model.Bmonth && psd.Byear==model.Byear).ToList();
 
-            return View(result.Result.Response);
+            return View(result);
         }
 
         #endregion
@@ -186,9 +197,9 @@ namespace SkyCableApiAndroid.Controllers
             model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
             model.Byear = Convert.ToString(DateTime.Now.Year);
 
-            var result = _objReport.MonthWiseReport(model);
+            var result = _db.tblBills.Where(psd=>psd.Bmonth==model.Bmonth && psd.Byear==model.Byear).ToList();
 
-            return View(result.Result.Response);
+            return View(result);
         }
 
 
@@ -211,9 +222,9 @@ namespace SkyCableApiAndroid.Controllers
             model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
             model.Byear = Convert.ToString(DateTime.Now.Year);
 
-            var result = _objReport.BalanceReport(model);
+            var result = _db.tblBills.Where(psd=>psd.Bmonth==model.Bmonth && psd.Byear==model.Byear && psd.Balance!=0).ToList();
 
-            return View(result.Result.Response);
+            return View(result);
         }
 
         #endregion
@@ -234,9 +245,9 @@ namespace SkyCableApiAndroid.Controllers
             model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
             model.Byear = Convert.ToString(DateTime.Now.Year);
 
-            var result = _objReport.ActiveCustomerReport(model);
+            var result = _db.tblBills.Where(psd => psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.Status == "Active").ToList();
 
-            return View(result.Result.Response);
+            return View(result);
         }
 
         #endregion
@@ -258,9 +269,8 @@ namespace SkyCableApiAndroid.Controllers
             model.Bmonth = Convert.ToString(DateTime.Now.ToString("MMM"));
             model.Byear = Convert.ToString(DateTime.Now.Year);
 
-            var result = _objReport.DeactiveCustomerReport(model);
-
-            return View(result.Result.Response);
+            var result = _db.tblBills.Where(psd=>psd.Bmonth==model.Bmonth && psd.Byear==model.Byear && psd.Status=="Deactive").ToList();
+            return View(result);
         }
 
         #endregion
