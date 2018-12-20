@@ -52,6 +52,8 @@ namespace SkyCableApiAndroid.Controllers
             {
                 using (CableApiAndroidEntity _db = new CableApiAndroidEntity())
                 {
+
+                    string abc = "";
                     var result = _db.tblSkyVisionLogins.Where(psd => psd.UserId == model.UserId && psd.Password == model.Password).FirstOrDefault();
 
                     if (result != null)
