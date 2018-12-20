@@ -177,3 +177,4 @@ D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.csproj.GenerateResource.Cache
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.dll
 D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.pdb
+D:\GitHubProject\CableApiAndroid\SkyCableApiAndroid\obj\Debug\SkyCableApiAndroid.csprojResolveAssemblyReference.cache
