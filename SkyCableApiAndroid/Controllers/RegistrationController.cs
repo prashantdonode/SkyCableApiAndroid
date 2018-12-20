@@ -102,7 +102,7 @@ namespace SkyCableApiAndroid.Controllers
                     _objCustomer.NoOfBox = model.NoOfBox;
                     _objCustomer.SetupBox_Details = model.SetupBox_Details;
                     _objCustomer.Package = model.Package;
-                    _objCustomer.PackageRate = (model.PackageRate * model.NoOfBox);
+                    _objCustomer.PackageRate = model.PackageRate;
 
                     if (_objCustomer.OldBal == null)
                     {
@@ -134,6 +134,157 @@ namespace SkyCableApiAndroid.Controllers
 
                 }
                    
+            }
+            catch (Exception exp)
+            {
+                return new ProjectResult { Message = exp.ToString(), Status = 0, Response = null };
+            }
+
+        }
+
+        #endregion
+
+        #region customer Registration Edit
+
+        [HttpPost]
+        public async Task<ProjectResult> CustomerRegistrationEdit(tblCustomerRegistration model)
+        {
+
+            try
+            {
+                var result = _db.tblCustomerRegistrations.Where(a => a.CustId == model.CustId && a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode).FirstOrDefault();
+                    tblCustomerRegistration _objCustomer = new tblCustomerRegistration();
+
+                    _objCustomer.CustName = model.CustName;
+                    _objCustomer.Address = model.Address;
+                    _objCustomer.MobileNo = model.MobileNo;
+                    _objCustomer.Area = model.Area;
+                    _objCustomer.NoOfBox = model.NoOfBox;
+                    _objCustomer.SetupBox_Details = model.SetupBox_Details;
+                    _objCustomer.Package = model.Package;
+                    _objCustomer.PackageRate = (model.PackageRate);     
+                    _objCustomer.AgentName = model.AgentName;
+                    _objCustomer.Status = model.Status;
+                    _objCustomer.IMEINo = model.IMEINo;
+                    _objCustomer.OperatorCode = model.OperatorCode;
+
+                _db.Entry(_objCustomer).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+
+                if (_objCustomer != null)
+                    {
+                        return new ProjectResult { Message = "Sucsessfully", Status = 1, Response = _objCustomer };
+                    }
+                    else
+                    {
+                        return new ProjectResult { Message = "Insert Failed", Status = 0, Response = null };
+
+                    }
+
+                
+
+            }
+            catch (Exception exp)
+            {
+                return new ProjectResult { Message = exp.ToString(), Status = 0, Response = null };
+            }
+
+        }
+
+        #endregion
+
+        #region customer Registration Delete
+
+        [HttpPost]
+        public async Task<ProjectResult> CustomerRegistrationDelete(tblCustomerRegistration model)
+        {
+
+            try
+            {
+                var result = _db.tblCustomerRegistrations.Where(a => a.CustId == model.CustId && a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode).FirstOrDefault();
+                         
+                _db.Entry(result).State = System.Data.Entity.EntityState.Deleted;
+                _db.SaveChanges();
+
+                if (result != null)
+                {
+                    return new ProjectResult { Message = "Sucsessfully", Status = 1, Response = result };
+                }
+                else
+                {
+                    return new ProjectResult { Message = "Insert Failed", Status = 0, Response = null };
+
+                }
+
+
+
+            }
+            catch (Exception exp)
+            {
+                return new ProjectResult { Message = exp.ToString(), Status = 0, Response = null };
+            }
+
+        }
+
+        #endregion
+
+
+        #region customer Registration Data
+
+        [HttpPost]
+        public async Task<ProjectResult> CustomerRegistrationData(tblCustomerRegistration model)
+        {
+
+            try
+            {
+                var result1 = _db.tblCustomerRegistrations.Where(a => a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode).ToList();
+               
+               
+                    if (result1 != null)
+                    {
+                        return new ProjectResult { Message = "Sucsessfully", Status = 1, Response = result1 };
+                    }
+                    else
+                    {
+                        return new ProjectResult { Message = "Insert Failed", Status = 0, Response = null };
+
+                    }
+
+                
+
+            }
+            catch (Exception exp)
+            {
+                return new ProjectResult { Message = exp.ToString(), Status = 0, Response = null };
+            }
+
+        }
+
+        #endregion
+
+        #region customer Registration Data by CustomerId
+
+        [HttpPost]
+        public async Task<ProjectResult> CustomerRegistrationDatacustid(tblCustomerRegistration model)
+        {
+
+            try
+            {
+                var result1 = _db.tblCustomerRegistrations.Where(a => a.CustId == model.CustId && a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode).ToList();
+
+
+                if (result1 != null)
+                {
+                    return new ProjectResult { Message = "Sucsessfully", Status = 1, Response = result1 };
+                }
+                else
+                {
+                    return new ProjectResult { Message = "Insert Failed", Status = 0, Response = null };
+
+                }
+
+
+
             }
             catch (Exception exp)
             {
