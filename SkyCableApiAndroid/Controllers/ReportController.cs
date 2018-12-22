@@ -211,7 +211,7 @@ namespace SkyCableApiAndroid.Controllers
 
                     var result = _db.tblBills.Where(psd => psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.IMEINo == model.IMEINo && psd.OperatorCode == model.OperatorCode && psd.Status == "Active").ToList();
 
-                    return new ProjectResult { Message = "Success", Status = 1, Response = result.Count };
+                    return new ProjectResult { Message = "Success", Status = 1, Response = result.Count()};
 
                 }
                 else
@@ -276,7 +276,7 @@ namespace SkyCableApiAndroid.Controllers
                 {
                     var result = _db.tblBills.Where(psd => psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.IMEINo == model.IMEINo && psd.OperatorCode == model.OperatorCode && psd.Status == "Deactive").ToList();
                     
-                    return new ProjectResult { Message = "Success", Status = 1, Response = result.Count };
+                    return new ProjectResult { Message = "Success", Status = 1, Response = result.Count() };
                 }
                 else
                 {
