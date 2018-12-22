@@ -152,10 +152,10 @@ namespace SkyCableApiAndroid.Controllers
 
             try
             {
-                var result = _db.tblCustomerRegistrations.Where(a => a.CustId == model.CustId && a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode).FirstOrDefault();
-                    tblCustomerRegistration _objCustomer = new tblCustomerRegistration();
+                tblCustomerRegistration _objCustomer = _db.tblCustomerRegistrations.Where(a => a.CustId == model.CustId && a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode).FirstOrDefault();
+               // tblCustomerRegistration _objCustomer = (from psd in _db.tblCustomerRegistrations.Where(a => a.CustId == model.CustId && a.IMEINo == model.IMEINo && a.OperatorCode == model.OperatorCode) select psd).FirstOrDefault();
 
-                    _objCustomer.CustName = model.CustName;
+                _objCustomer.CustName = model.CustName;
                     _objCustomer.Address = model.Address;
                     _objCustomer.MobileNo = model.MobileNo;
                     _objCustomer.Area = model.Area;
@@ -426,9 +426,9 @@ namespace SkyCableApiAndroid.Controllers
         {
             try
             {
-                var result = _db.tblAgents.Where(a=>a.AgentName==model.AgentName && a.Password == model.Password && a.OperatorCode == model.OperatorCode).ToList();
+                var result = _db.tblAgents.Where(a=>a.AgentName==model.AgentName && a.Password == model.Password && a.OperatorCode == model.OperatorCode && a.IMEINo==model.IMEINo).ToList();
 
-                if (result != null)
+                if (result.Count != 0)
                 {
                     return new ProjectResult { Message = "Success", Status = 1, Response = result };
                 }
