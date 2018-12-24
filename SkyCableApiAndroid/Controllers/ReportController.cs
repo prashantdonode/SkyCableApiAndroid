@@ -120,7 +120,7 @@ namespace SkyCableApiAndroid.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _db.tblBills.Where(psd => psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.IMEINo == model.IMEINo && psd.OperatorCode == model.OperatorCode).ToList();
+                    var result = _db.tblBills.Where(psd => psd.Bmonth == model.Bmonth && psd.Byear == model.Byear && psd.IMEINo == model.IMEINo && psd.OperatorCode == model.OperatorCode && psd.PaymentAmount1!=0 && psd.PaymentAmount2!=0).ToList();
 
                     return new ProjectResult { Message = "Success", Status = 1, Response = result };
                 }
